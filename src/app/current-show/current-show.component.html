@@ -1,9 +1,15 @@
+<p>current-weather works!</p>
 <div>
   <div>
-    <span>{{current.showname}},{{current.country}}</span>
+    <span>{{current.showname}}</span>
+    <span>{{current.status}}</span>
   </div>
   <div>
-    {{current.averagerating}}
+    <img [src]= 'current.image'/>
+    <span>{{current.averagerating}}</span>
   </div>
+  <div>{{current.summary}}</div>
 
 </div>
+
+

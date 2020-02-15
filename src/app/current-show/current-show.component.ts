@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICurrentShow } from '../icurrent-show';
+import { ShowService } from '../show.service';
 
 @Component({
   selector: 'app-current-show',
@@ -8,19 +9,13 @@ import { ICurrentShow } from '../icurrent-show';
 })
 export class CurrentShowComponent implements OnInit {
    current: ICurrentShow
-  constructor() { 
-    this.current = {
-      showname:'The Powerpuff Girls',
-      country:'US',
-      averagerating:6.1,
-      language:'English',
-      status:'Running',
-      summary:'The city of Townsville may be a beautiful, bustling metropolis, but do not be fooled! There is evil afoot! And only three things can keep the bad guys at bay: Blossom, Bubbles and Buttercup, three super-powered little girls, known to their fans (and villains everywhere) as <b>The Powerpuff Girls</b>. Juggling school, bedtimes, and beating up giant monsters may be daunting, but together the Powerpuff Girls are up to the task. Battling a whose who of evil, they show what it really means to',
-      image:''
-    } as ICurrentShow
+  constructor(private showService: ShowService) { 
+    
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.showService.getCurrentShow('Girls').subscribe(data => this.current = data);
+
   }
 
 }

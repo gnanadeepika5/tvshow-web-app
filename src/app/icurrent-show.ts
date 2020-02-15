@@ -1,9 +1,9 @@
 export interface ICurrentShow {
   showname:string
-  country:string
-  averagerating:number
   language:string
   status:string
-  summary:string
+  averagerating:number
   image:string
+  summary:string
+  
 }
